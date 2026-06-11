@@ -1,0 +1,82 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00A77E68 .scope module, "mem_wb_tb" "mem_wb_tb" 2 1;
+ .timescale 0 0;
+v00A72C28_0 .var "alu_result_in", 31 0;
+v00A72C80_0 .net "alu_result_out", 31 0, v00A789A0_0; 1 drivers
+v00A72CD8_0 .var "clk", 0 0;
+v00A7E7D8_0 .var "mem_data_in", 31 0;
+v00A7E830_0 .net "mem_data_out", 31 0, v00A73A08_0; 1 drivers
+v00A7E888_0 .var "reset", 0 0;
+S_00A773C8 .scope module, "uut" "mem_wb" 2 12, 3 1, S_00A77E68;
+ .timescale 0 0;
+v00A78948_0 .net "alu_result_in", 31 0, v00A72C28_0; 1 drivers
+v00A789A0_0 .var "alu_result_out", 31 0;
+v00A789F8_0 .net "clk", 0 0, v00A72CD8_0; 1 drivers
+v00A739B0_0 .net "mem_data_in", 31 0, v00A7E7D8_0; 1 drivers
+v00A73A08_0 .var "mem_data_out", 31 0;
+v00A73A60_0 .net "reset", 0 0, v00A7E888_0; 1 drivers
+E_00A78060 .event posedge, v00A73A60_0, v00A789F8_0;
+    .scope S_00A773C8;
+T_0 ;
+    %wait E_00A78060;
+    %load/v 8, v00A73A60_0, 1;
+    %jmp/0xz  T_0.0, 8;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00A73A08_0, 0, 0;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00A789A0_0, 0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v00A739B0_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00A73A08_0, 0, 8;
+    %load/v 8, v00A78948_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00A789A0_0, 0, 8;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_00A77E68;
+T_1 ;
+    %delay 5, 0;
+    %load/v 8, v00A72CD8_0, 1;
+    %inv 8, 1;
+    %set/v v00A72CD8_0, 8, 1;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_00A77E68;
+T_2 ;
+    %set/v v00A72CD8_0, 0, 1;
+    %set/v v00A7E888_0, 1, 1;
+    %delay 10, 0;
+    %set/v v00A7E888_0, 0, 1;
+    %movi 8, 100, 32;
+    %set/v v00A7E7D8_0, 8, 32;
+    %movi 8, 30, 32;
+    %set/v v00A72C28_0, 8, 32;
+    %delay 10, 0;
+    %movi 8, 200, 32;
+    %set/v v00A7E7D8_0, 8, 32;
+    %movi 8, 50, 32;
+    %set/v v00A72C28_0, 8, 32;
+    %delay 10, 0;
+    %vpi_call 2 39 "$finish";
+    %end;
+    .thread T_2;
+    .scope S_00A77E68;
+T_3 ;
+    %vpi_call 2 43 "$dumpfile", "mem_wb.vcd";
+    %vpi_call 2 44 "$dumpvars", 1'sb0, S_00A77E68;
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb\mem_wb_tb.v";
+    "rtl\mem_wb.v";

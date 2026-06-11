@@ -1,0 +1,108 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0123D930 .scope module, "id_ex_tb" "id_ex_tb" 2 1;
+ .timescale 0 0;
+v01232C80_0 .var "clk", 0 0;
+v01232CD8_0 .var "imm_in", 31 0;
+v0123AE78_0 .net "imm_out", 31 0, v0123EF80_0; 1 drivers
+v0123AED0_0 .var "pc_in", 31 0;
+v0123AF28_0 .net "pc_out", 31 0, v01237C50_0; 1 drivers
+v0123AF80_0 .var "rd1_in", 31 0;
+v010DF8A0_0 .net "rd1_out", 31 0, v01233CE0_0; 1 drivers
+v010DFFA8_0 .var "rd2_in", 31 0;
+v010DFA28_0 .net "rd2_out", 31 0, v01233D90_0; 1 drivers
+v010DFF50_0 .var "reset", 0 0;
+S_0123CFA0 .scope module, "uut" "id_ex" 2 16, 3 1, S_0123D930;
+ .timescale 0 0;
+v0123E288_0 .net "clk", 0 0, v01232C80_0; 1 drivers
+v0123EF28_0 .net "imm_in", 31 0, v01232CD8_0; 1 drivers
+v0123EF80_0 .var "imm_out", 31 0;
+v01237BF8_0 .net "pc_in", 31 0, v0123AED0_0; 1 drivers
+v01237C50_0 .var "pc_out", 31 0;
+v01237CA8_0 .net "rd1_in", 31 0, v0123AF80_0; 1 drivers
+v01233CE0_0 .var "rd1_out", 31 0;
+v01233D38_0 .net "rd2_in", 31 0, v010DFFA8_0; 1 drivers
+v01233D90_0 .var "rd2_out", 31 0;
+v01232C28_0 .net "reset", 0 0, v010DFF50_0; 1 drivers
+E_012370F8 .event posedge, v01232C28_0, v0123E288_0;
+    .scope S_0123CFA0;
+T_0 ;
+    %wait E_012370F8;
+    %load/v 8, v01232C28_0, 1;
+    %jmp/0xz  T_0.0, 8;
+    %ix/load 0, 32, 0;
+    %assign/v0 v01237C50_0, 0, 0;
+    %ix/load 0, 32, 0;
+    %assign/v0 v01233CE0_0, 0, 0;
+    %ix/load 0, 32, 0;
+    %assign/v0 v01233D90_0, 0, 0;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0123EF80_0, 0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v01237BF8_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v01237C50_0, 0, 8;
+    %load/v 8, v01237CA8_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v01233CE0_0, 0, 8;
+    %load/v 8, v01233D38_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v01233D90_0, 0, 8;
+    %load/v 8, v0123EF28_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0123EF80_0, 0, 8;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0123D930;
+T_1 ;
+    %delay 5, 0;
+    %load/v 8, v01232C80_0, 1;
+    %inv 8, 1;
+    %set/v v01232C80_0, 8, 1;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0123D930;
+T_2 ;
+    %set/v v01232C80_0, 0, 1;
+    %set/v v010DFF50_0, 1, 1;
+    %delay 10, 0;
+    %set/v v010DFF50_0, 0, 1;
+    %movi 8, 4, 32;
+    %set/v v0123AED0_0, 8, 32;
+    %movi 8, 10, 32;
+    %set/v v0123AF80_0, 8, 32;
+    %movi 8, 20, 32;
+    %set/v v010DFFA8_0, 8, 32;
+    %movi 8, 100, 32;
+    %set/v v01232CD8_0, 8, 32;
+    %delay 10, 0;
+    %movi 8, 8, 32;
+    %set/v v0123AED0_0, 8, 32;
+    %movi 8, 30, 32;
+    %set/v v0123AF80_0, 8, 32;
+    %movi 8, 40, 32;
+    %set/v v010DFFA8_0, 8, 32;
+    %movi 8, 200, 32;
+    %set/v v01232CD8_0, 8, 32;
+    %delay 10, 0;
+    %vpi_call 2 53 "$finish";
+    %end;
+    .thread T_2;
+    .scope S_0123D930;
+T_3 ;
+    %vpi_call 2 57 "$dumpfile", "id_ex.vcd";
+    %vpi_call 2 58 "$dumpvars", 1'sb0, S_0123D930;
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb\id_ex_tb.v";
+    "rtl\id_ex.v";

@@ -1,0 +1,92 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01188030 .scope module, "register_file_tb" "register_file_tb" 2 1;
+ .timescale 0 0;
+v011899F0_0 .var "clk", 0 0;
+v0118ECC8_0 .var "rd", 4 0;
+v011E5210_0 .net "rd1", 31 0, L_0118ED20; 1 drivers
+v011E5108_0 .net "rd2", 31 0, L_0118EE00; 1 drivers
+v011E51B8_0 .var "rs1", 4 0;
+v011E5318_0 .var "rs2", 4 0;
+v011E4EF8_0 .var "wd", 31 0;
+v011E5268_0 .var "we", 0 0;
+S_01188AD0 .scope module, "uut" "register_file" 2 13, 3 1, S_01188030;
+ .timescale 0 0;
+L_0118ED20 .functor BUFZ 32, L_011E4E48, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_0118EE00 .functor BUFZ 32, L_011E4C90, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+v01183D00_0 .net *"_s0", 31 0, L_011E4E48; 1 drivers
+v01183D58_0 .net *"_s4", 31 0, L_011E4C90; 1 drivers
+v01183DB0_0 .net "clk", 0 0, v011899F0_0; 1 drivers
+v01182C28_0 .net "rd", 4 0, v0118ECC8_0; 1 drivers
+v01182C80_0 .alias "rd1", 31 0, v011E5210_0;
+v01182CD8_0 .alias "rd2", 31 0, v011E5108_0;
+v01189838 .array "regfile", 31 0, 31 0;
+v01189890_0 .net "rs1", 4 0, v011E51B8_0; 1 drivers
+v011898E8_0 .net "rs2", 4 0, v011E5318_0; 1 drivers
+v01189940_0 .net "wd", 31 0, v011E4EF8_0; 1 drivers
+v01189998_0 .net "we", 0 0, v011E5268_0; 1 drivers
+E_01189600 .event posedge, v01183DB0_0;
+L_011E4E48 .array/port v01189838, v011E51B8_0;
+L_011E4C90 .array/port v01189838, v011E5318_0;
+    .scope S_01188AD0;
+T_0 ;
+    %wait E_01189600;
+    %load/v 8, v01189998_0, 1;
+    %jmp/0xz  T_0.0, 8;
+    %load/v 8, v01189940_0, 32;
+    %ix/getv 3, v01182C28_0;
+    %jmp/1 t_0, 4;
+    %ix/load 0, 32, 0; word width
+    %ix/load 1, 0, 0; part off
+    %assign/av v01189838, 0, 8;
+t_0 ;
+T_0.0 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_01188030;
+T_1 ;
+    %delay 5, 0;
+    %load/v 8, v011899F0_0, 1;
+    %inv 8, 1;
+    %set/v v011899F0_0, 8, 1;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_01188030;
+T_2 ;
+    %set/v v011899F0_0, 0, 1;
+    %set/v v011E5268_0, 1, 1;
+    %movi 8, 1, 5;
+    %set/v v0118ECC8_0, 8, 5;
+    %movi 8, 100, 32;
+    %set/v v011E4EF8_0, 8, 32;
+    %delay 10, 0;
+    %movi 8, 2, 5;
+    %set/v v0118ECC8_0, 8, 5;
+    %movi 8, 200, 32;
+    %set/v v011E4EF8_0, 8, 32;
+    %delay 10, 0;
+    %set/v v011E5268_0, 0, 1;
+    %movi 8, 1, 5;
+    %set/v v011E51B8_0, 8, 5;
+    %movi 8, 2, 5;
+    %set/v v011E5318_0, 8, 5;
+    %delay 20, 0;
+    %vpi_call 2 44 "$finish";
+    %end;
+    .thread T_2;
+    .scope S_01188030;
+T_3 ;
+    %vpi_call 2 48 "$dumpfile", "register_file.vcd";
+    %vpi_call 2 49 "$dumpvars", 1'sb0, S_01188030;
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb/register_file_tb.v";
+    "rtl/register_file.v";

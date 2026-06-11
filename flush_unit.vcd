@@ -1,0 +1,33 @@
+$date
+	Thu Jun 11 16:18:07 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module flush_unit_tb $end
+$var wire 1 ! flush_id_ex $end
+$var wire 1 " flush_if_id $end
+$var reg 1 # branch_taken $end
+$scope module uut $end
+$var wire 1 $ branch_taken $end
+$var wire 1 ! flush_id_ex $end
+$var wire 1 " flush_if_id $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+0#
+0"
+0!
+$end
+#10
+1#
+1"
+1!
+1$
+#20

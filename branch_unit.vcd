@@ -1,0 +1,33 @@
+$date
+	Thu Jun 11 15:49:48 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module branch_unit_tb $end
+$var wire 1 ! branch_taken $end
+$var reg 32 " a [31:0] $end
+$var reg 32 # b [31:0] $end
+$scope module uut $end
+$var wire 32 $ a [31:0] $end
+$var wire 32 % b [31:0] $end
+$var wire 1 ! branch_taken $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1010 %
+b1010 $
+b1010 #
+b1010 "
+1!
+$end
+#10
+b10100 #
+b10100 %
+0!
+#20

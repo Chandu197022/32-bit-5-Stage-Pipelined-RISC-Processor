@@ -1,0 +1,253 @@
+$date
+	Thu Jun 11 08:27:23 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module processor_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " reset $end
+$scope module uut $end
+$var wire 32 # alu_result [31:0] $end
+$var wire 1 $ clk $end
+$var wire 32 % instruction [31:0] $end
+$var wire 32 & next_pc [31:0] $end
+$var wire 32 ' pc_out [31:0] $end
+$var wire 5 ( rd [4:0] $end
+$var wire 32 ) rd1 [31:0] $end
+$var wire 32 * rd2 [31:0] $end
+$var wire 1 + reset $end
+$var wire 5 , rs1 [4:0] $end
+$var wire 5 - rs2 [4:0] $end
+$scope module PC $end
+$var wire 1 $ clk $end
+$var wire 32 . next_pc [31:0] $end
+$var wire 1 + reset $end
+$var reg 32 / pc_out [31:0] $end
+$upscope $end
+$scope module IMEM $end
+$var wire 32 0 addr [31:0] $end
+$var wire 32 1 instruction [31:0] $end
+$upscope $end
+$scope module RF $end
+$var wire 1 $ clk $end
+$var wire 5 2 rd [4:0] $end
+$var wire 32 3 rd1 [31:0] $end
+$var wire 32 4 rd2 [31:0] $end
+$var wire 5 5 rs1 [4:0] $end
+$var wire 5 6 rs2 [4:0] $end
+$var wire 32 7 wd [31:0] $end
+$var wire 1 8 we $end
+$upscope $end
+$scope module ALU $end
+$var wire 32 9 a [31:0] $end
+$var wire 3 : alu_control [2:0] $end
+$var wire 32 ; b [31:0] $end
+$var reg 32 < result [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11110 <
+b10100 ;
+b0 :
+b1010 9
+18
+b11110 7
+b10 6
+b1 5
+b10100 4
+b1010 3
+b11 2
+b1000001000000110110011 1
+b0 0
+b0 /
+b100 .
+b10 -
+b1 ,
+1+
+b10100 *
+b1010 )
+b11 (
+b0 '
+b100 &
+b1000001000000110110011 %
+0$
+b11110 #
+1"
+0!
+$end
+#5
+1!
+1$
+#10
+0!
+0$
+0"
+0+
+#15
+b110010 <
+b110010 #
+b110010 7
+b100 (
+b100 2
+b11110 *
+b11110 4
+b11110 ;
+b11 -
+b11 6
+b10100 )
+b10100 3
+b10100 9
+b10 ,
+b10 5
+b1000000001100010000001000110011 %
+b1000000001100010000001000110011 1
+b1000 &
+b1000 .
+b100 /
+b100 '
+b100 0
+1!
+1$
+#20
+0!
+0$
+#25
+b1010000 <
+b1010000 #
+b1010000 7
+b110 (
+b110 2
+b110010 *
+b110010 4
+b110010 ;
+b100 -
+b100 6
+b11110 )
+b11110 3
+b11110 9
+b11 ,
+b11 5
+b10000011000001100110011 %
+b10000011000001100110011 1
+b1100 &
+b1100 .
+b1000 /
+b1000 '
+b1000 0
+1!
+1$
+#30
+0!
+0$
+#35
+bx <
+bx #
+bx 7
+bx (
+bx 2
+bx *
+bx 4
+bx ;
+bx -
+bx 6
+bx )
+bx 3
+bx 9
+bx ,
+bx 5
+bx %
+bx 1
+b10000 &
+b10000 .
+b1100 /
+b1100 '
+b1100 0
+1!
+1$
+#40
+0!
+0$
+#45
+b10100 &
+b10100 .
+b10000 /
+b10000 '
+b10000 0
+1!
+1$
+#50
+0!
+0$
+#55
+b11000 &
+b11000 .
+b10100 /
+b10100 '
+b10100 0
+1!
+1$
+#60
+0!
+0$
+#65
+b11100 &
+b11100 .
+b11000 /
+b11000 '
+b11000 0
+1!
+1$
+#70
+0!
+0$
+#75
+b100000 &
+b100000 .
+b11100 /
+b11100 '
+b11100 0
+1!
+1$
+#80
+0!
+0$
+#85
+b100100 &
+b100100 .
+b100000 /
+b100000 '
+b100000 0
+1!
+1$
+#90
+0!
+0$
+#95
+b101000 &
+b101000 .
+b100100 /
+b100100 '
+b100100 0
+1!
+1$
+#100
+0!
+0$
+#105
+b101100 &
+b101100 .
+b101000 /
+b101000 '
+b101000 0
+1!
+1$
+#110
+0!
+0$
